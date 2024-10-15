@@ -45,9 +45,10 @@ body {
 
         .row {
             display: flex;
+            padding: 10px;
             width: 100%;
         }
 
         .google-visualization-table-td {
-        text-align: center !important;
+            text-align: center !important;
         }

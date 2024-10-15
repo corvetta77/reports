@@ -48,7 +48,7 @@ function drawTable() {
     ]);
 
     var table = new google.visualization.Table(document.getElementById('google_table'));
-    table.draw(data, {showRowNumber: true, width: '100%', height: 300});
+    table.draw(data, {showRowNumber: true, width: '100%', height: 200});
 }
 
 google.charts.load('current', {'packages':['corechart']});
@@ -56,19 +56,19 @@ google.charts.setOnLoadCallback(drawPerformanceChart);
 
 function drawPerformanceChart() {
     var bills = 1000000;
-    var customers = 950000;
+    var customers = 998000;
     var data = google.visualization.arrayToDataTable([
-        ['Year-Month', 'Bills', 'Number of customers'],
-        ['2024-May',  (bills+Math.floor(Math.random() * 10)), (customers+Math.floor(Math.random() * 10))],
-        ['2024-Jun',  (bills-Math.floor(Math.random() * 10)), (customers-Math.floor(Math.random() * 10))],
-        ['2024-Jul',  (bills+Math.floor(Math.random() * 20)), (customers+Math.floor(Math.random() * 20))],
-        ['2024-Aug',  (bills-Math.floor(Math.random() * 10)), (customers-Math.floor(Math.random() * 10))],
-        ['2024-Sep',  (bills+Math.floor(Math.random() * 20)), (customers+Math.floor(Math.random() * 20))],
-        ['2024-Oct',  (bills-Math.floor(Math.random() * 10)), (customers-Math.floor(Math.random() * 10))]
+        ['Year-Month', 'Bills', 'Customers'],
+        ['2024-May',  (bills+Math.floor(Math.random() * 2000)), (customers+Math.floor(Math.random() * 1000))],
+        ['2024-Jun',  (bills-Math.floor(Math.random() * 2000)), (customers+Math.floor(Math.random() * 1000))],
+        ['2024-Jul',  (bills+Math.floor(Math.random() * 4000)), (customers+Math.floor(Math.random() * 2000))],
+        ['2024-Aug',  (bills-Math.floor(Math.random() * 2000)), (customers-Math.floor(Math.random() * 1000))],
+        ['2024-Sep',  (bills+Math.floor(Math.random() * 4000)), (customers+Math.floor(Math.random() * 2000))],
+        ['2024-Oct',  (bills+Math.floor(Math.random() * 2000)), (customers+Math.floor(Math.random() * 1000))]
     ]);
 
     var options = {
-        title: 'Number of bills per month',
+        title: 'Number of bills and customers per month',
         curveType: 'function',
         legend: { position: 'bottom' },
         height: 400
