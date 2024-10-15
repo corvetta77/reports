@@ -31,6 +31,23 @@ body {
             display: block;
         }
 
+        .grid {
+            display: flex; /* This will enable the flexbox layout */
+            flex-wrap: wrap; /* Ensures that items will wrap to the next line if there's not enough space */
+            justify-content: space-between; /* Add spacing between the charts */
+        }
+
+        .col {
+            flex: 1;
+            padding: 10px;
+            min-width: 200px; /* Adjust this as necessary */
+        }
+
+        .row {
+            display: flex;
+            width: 100%;
+        }
+
         .google-visualization-table-td {
         text-align: center !important;
         }

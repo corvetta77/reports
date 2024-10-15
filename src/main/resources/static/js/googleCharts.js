@@ -1,23 +1,17 @@
-// Load the Visualization API and the corechart package.
 google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawPieChart);
 
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-function drawChart() {
+function drawPieChart() {
 
     // Create the data table.
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Product Name');
     data.addColumn('number', 'Number of clients');
     data.addRows([
-        ['Spot', 60000],
-        ['Fixed price', 10000],
-        ['Day ahead fixed price', 50000],
-        ['Fix+spot', 20000],
+        ['Spot', Math.floor(Math.random() * 1000)],
+        ['Fixed price', Math.floor(Math.random() * 3000)],
+        ['Day ahead fixed price', Math.floor(Math.random() * 1000)],
+        ['Fix+spot', Math.floor(Math.random() * 2000)],
     ]);
 
     // Set chart options
@@ -26,13 +20,13 @@ function drawChart() {
         'height':400};
 
     // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.PieChart(document.getElementById('google_charts'));
+    var chart = new google.visualization.PieChart(document.getElementById('pie_charts'));
     chart.draw(data, options);
 
-    var chart1 = new google.visualization.PieChart(document.getElementById('google_charts1'));
+    var chart1 = new google.visualization.PieChart(document.getElementById('pie_charts1'));
     chart1.draw(data, options);
 
-    var chart2 = new google.visualization.PieChart(document.getElementById('google_charts2'));
+    var chart2 = new google.visualization.PieChart(document.getElementById('pie_charts2'));
     chart2.draw(data, options);
 }
 
@@ -45,13 +39,41 @@ function drawTable() {
     data.addColumn('number', 'Number of clients');
     data.addColumn('boolean', 'Is active');
     data.addRows([
-         ['Spot', 60000, false],
-         ['Fixed price', 10000, true],
-         ['Day ahead fixed price', 50000, false],
-         ['Fix+spot', 20000, true],
+         ['Spot', Math.floor(Math.random() * 1000), false],
+         ['Fixed price', Math.floor(Math.random() * 3000), true],
+         ['Day ahead fixed price', Math.floor(Math.random() * 1000), false],
+         ['Fix+spot', Math.floor(Math.random() * 2000), true],
+         ['Very complex seasonal product', Math.floor(Math.random() * 2000), true],
+         ['Other complex seasonal product', Math.floor(Math.random() * 2000), true],
     ]);
 
     var table = new google.visualization.Table(document.getElementById('google_table'));
+    table.draw(data, {showRowNumber: true, width: '100%', height: 300});
+}
 
-    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawPerformanceChart);
+
+function drawPerformanceChart() {
+    var bills = 1000000;
+    var customers = 950000;
+    var data = google.visualization.arrayToDataTable([
+        ['Year-Month', 'Bills', 'Number of customers'],
+        ['2024-May',  (bills+Math.floor(Math.random() * 10)), (customers+Math.floor(Math.random() * 10))],
+        ['2024-Jun',  (bills-Math.floor(Math.random() * 10)), (customers-Math.floor(Math.random() * 10))],
+        ['2024-Jul',  (bills+Math.floor(Math.random() * 20)), (customers+Math.floor(Math.random() * 20))],
+        ['2024-Aug',  (bills-Math.floor(Math.random() * 10)), (customers-Math.floor(Math.random() * 10))],
+        ['2024-Sep',  (bills+Math.floor(Math.random() * 20)), (customers+Math.floor(Math.random() * 20))],
+        ['2024-Oct',  (bills-Math.floor(Math.random() * 10)), (customers-Math.floor(Math.random() * 10))]
+    ]);
+
+    var options = {
+        title: 'Number of bills per month',
+        curveType: 'function',
+        legend: { position: 'bottom' },
+        height: 400
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+    chart.draw(data, options);
 }

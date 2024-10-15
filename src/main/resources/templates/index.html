@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,32 +23,36 @@
 
 <div id="Tab1" class="tab-content active">
     <h2>Google Charts</h2>
+    <button class="btn btn-primary" onclick="reloadCharts()">Load fresh data</button>
     <div class="grid">
         <div class="row">
             <div class="col">
-                <p id="google_charts"></p>
+                <p id="pie_charts"></p>
             </div>
             <div class="col">
-                <p id="google_charts1"></p>
+                <p id="pie_charts1"></p>
             </div>
             <div class="col">
-                <p id="google_charts2"></p>
+                <p id="pie_charts2"></p>
             </div>
         </div>
         <div class="row" id="google_table">
         </div>
+        <br>
+        <br>
+        <div class="row" id="curve_chart">
+        </div>
     </div>
-
 </div>
 
 <div id="Tab2" class="tab-content">
     <h2>Tab 2</h2>
-    <p>Zawartość drugiego tab.</p>
+    <p>Different charts for debt</p>
 </div>
 
 <div id="Tab3" class="tab-content">
     <h2>Tab 3</h2>
-    <p>Zawartość trzeciego tab.</p>
+    <p>Different charts for different things</p>
 </div>
 
 <script>
@@ -72,6 +76,10 @@
             document.getElementById(tabName).style.display = "block";
             document.getElementById(tabName).classList.add("active");
             event.currentTarget.classList.add("active");
+        }
+
+        function reloadCharts() {
+            drawChart();
         }
     </script>
 
