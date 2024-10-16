@@ -1,11 +1,10 @@
 # Purpose
-The application to explore possibility of creating simple reporting capability using plain java, thymleaf and different js libraries
+Exploring possibility of creating simple reporting capability using plain java, thymleaf and different js libraries
 
 Js libraries being used:
 - [GoogleCharts](https://developers.google.com/chart/interactive/docs)
 - [Charts.js](https://www.chartjs.org/)
 
-Activity
 # Getting Started
 
 ### Reference Documentation
