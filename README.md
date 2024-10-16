@@ -1,8 +1,11 @@
-# Read Me First
-The following was discovered as part of building this project:
+# Purpose
+The application to explore possibility of creating simple reporting capability using plain java, thymleaf and different js libraries
 
-* No Docker Compose services found. As of now, the application won't start! Please add at least one service to the `compose.yaml` file.
+Js libraries being used:
+- [GoogleCharts](https://developers.google.com/chart/interactive/docs)
+- [Charts.js](https://www.chartjs.org/)
 
+Activity
 # Getting Started
 
 ### Reference Documentation
